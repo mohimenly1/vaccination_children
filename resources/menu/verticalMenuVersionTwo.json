@@ -1,0 +1,41 @@
+{
+    "menuVersionTwo": [
+      {
+        "url": "/",
+        "name": "لوحة التحكم",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "dashboard-analytics"
+      },
+      {
+        "url": "/health-center/add",
+        "name": "إضافة مركز صحي",
+        "icon": "menu-icon tf-icons bx bx-plus-medical",
+        "slug": "health-center-add"
+      },
+      {
+        "url": "/operations/health-ministry",
+        "name": "الإجـراءات",
+        "icon": "menu-icon tf-icons bx bxs-joystick-button",
+        "slug": "health-ministry-operations"
+      },
+      {
+        "url": "/notify-health-center",
+        "name": "إضافـة إعـلان",
+        "icon": "menu-icon tf-icons bx bxs-bell-ring",
+        "slug": "notify-health-center"
+      },
+      {
+        "url": "/notify-info-health-center",
+        "name": "إضافـة معلومات",
+        "icon": "menu-icon tf-icons bx bxs-info-circle",
+        "slug": "notify-info-health-center"
+      },
+      {
+        "url": "/respond-inquiris",
+        "name": "الرد على الإستفسارات",
+        "icon": "menu-icon tf-icons bx bxs-chat",
+        "slug": "respond-inquiry.index"
+      }
+    ]
+  }
+  
