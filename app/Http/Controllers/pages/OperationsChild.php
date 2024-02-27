@@ -36,7 +36,11 @@ class OperationsChild extends Controller
                              ->orWhere('national_number', 'LIKE', "%$query%");
                        })
                        ->paginate(5);
-      return view('content.pages.pages-operations-child', compact('children'));
+    $vaccination_namess = AmountVaccination::select('amount_vaccination.*', 'vaccination_names.vaccination_name', 'amount_vaccination.vaccination_name as vaccination_name_id')
+    ->where('health_id', $health_id)
+    ->join('vaccination_names', 'amount_vaccination.vaccination_name', '=', 'vaccination_names.id')
+    ->get();
+      return view('content.pages.pages-operations-child', compact('children','vaccination_namess'));
   }
   
 

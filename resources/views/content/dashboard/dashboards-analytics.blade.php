@@ -15,7 +15,7 @@
 @endsection
 
 @section('content')
-<div class="row d-flex flex-row-reverse" dir="rtl">
+{{-- <div class="row d-flex flex-row-reverse" dir="rtl">
   <div class="col-lg-8 mb-4 order-0">
     <div class="card">
       <div class="d-flex align-items-end row">
@@ -74,17 +74,14 @@
           </div>
         </div>
         @if(auth()->user()->role == 'users_health_ministry')
-        {{-- <div class="col-sm-5 box-child-count">
-          <div id="growthChart" data-children="{{ $children }}"></div>
    
-        </div> --}}
         @endif
       </div>
     </div>
   </div>
 
   
-</div>
+</div> --}}
 
 
 <style>

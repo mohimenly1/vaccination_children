@@ -58,6 +58,7 @@ class AddChildFile extends Controller
           'birth_status' => 'required',
           'last_vaccination' => 'nullable|string',
           'next_vaccination' => 'required|string',
+          'child_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
       ], [
           'name_child.required' => 'يجب إدخال اسم الطفل',
           'date_birth.required' => 'يجب إدخال مواليد الطفل',
@@ -68,6 +69,11 @@ class AddChildFile extends Controller
           'national_number.unique' => 'هذا الرقم الوطني مستخدم بالفعل',
           'next_vaccination.required' => 'يجب إدخال التطعيمة التالية',
       ]);
+
+      if ($request->hasFile('child_image')) {
+        $imagePath = $request->file('child_image')->store('child_images');
+        $validatedData['image_path'] = $imagePath;
+    }
   
       $validatedData['health_id'] = auth()->user()->id;
   

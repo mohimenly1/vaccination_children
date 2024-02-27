@@ -1,0 +1,22 @@
+{
+    "menuTwoV":[
+        {
+            "url": "/notify-health-center",
+            "name": "إضافـة إعـلان",
+            "icon": "menu-icon tf-icons bx bxs-bell-ring",
+            "slug": "notify-health-center"
+          },
+          {
+            "url": "/notify-info-health-center",
+            "name": "إضافـة معلومات",
+            "icon": "menu-icon tf-icons bx bxs-info-circle",
+            "slug": "notify-info-health-center"
+          },
+          {
+            "url": "/respond-inquiris",
+            "name": "الرد على الإستفسارات",
+            "icon": "menu-icon tf-icons bx bxs-chat",
+            "slug": "respond-inquiry.index"
+          }
+    ]
+}

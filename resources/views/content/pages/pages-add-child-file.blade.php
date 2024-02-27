@@ -21,7 +21,7 @@
           <h5 class="mb-0">إضافة ملف للطفل</h5>
         </div>
         <div class="card-body">
-          <form method="POST" action="{{ route('store-child') }}" >
+          <form method="POST" action="{{ route('store-child') }}" enctype="multipart/form-data" >
             @csrf
             @method('POST')
             <div class="row mb-3">
@@ -33,6 +33,14 @@
                 @enderror
               </div>
             </div>
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label">صورة الطفل</label>
+              <div class="col-sm-10">
+                  <input type="file" class="form-control" name="child_image" accept="image/*" onchange="previewImage(event)" />
+                  <img id="imagePreview" src="#" alt="Preview" style="display: none; max-width: 200px; margin-top: 10px;" />
+              </div>
+          </div>
+          
             <div class="row mb-3">
               <label class="col-sm-2 col-form-label">تاريخ الميلاد</label>
               <div class="col-sm-10">

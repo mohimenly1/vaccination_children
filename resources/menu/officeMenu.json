@@ -1,0 +1,28 @@
+{
+    "menuOfiice":[
+        {
+            "url": "/vaccination/add",
+            "name": "إضافة تطعيمة للطفل",
+            "icon": "menu-icon tf-icons bx bxs-baby-carriage",
+            "slug": "add-vaccination"
+          },
+          {
+            "url": "/notification/info/vaccination/add",
+            "name": "إشعار معلومات",
+            "icon": "menu-icon tf-icons bx bxs-bell-ring",
+            "slug": "show-form-notification"
+          },
+          {
+            "url": "/operations/child",
+            "name": "الإجراءات",
+            "icon": "menu-icon tf-icons bx bxs-joystick-button",
+            "slug": "operations-child"
+          },
+          {
+            "url": "/respond-inquiris",
+            "name": "الرد على الإستفسارات",
+            "icon": "menu-icon tf-icons bx bxs-chat",
+            "slug": "respond-inquiry.index"
+          }
+    ]
+}
