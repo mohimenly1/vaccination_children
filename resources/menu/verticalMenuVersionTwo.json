@@ -1,0 +1,28 @@
+{
+    "menuVersionTwo": [
+      {
+        "url": "/",
+        "name": "لوحة التحكم",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "dashboard-analytics"
+      },
+      {
+        "url": "/health-center/add",
+        "name": "إضافة مركز صحي",
+        "icon": "menu-icon tf-icons bx bx-plus-medical",
+        "slug": "health-center-add"
+      },
+      {
+        "url": "/operations/health-ministry",
+        "name": "الإجـراءات",
+        "icon": "menu-icon tf-icons bx bxs-joystick-button",
+        "slug": "health-ministry-operations"
+      }
+      
+
+
+
+    ]
+  }
+  
+
