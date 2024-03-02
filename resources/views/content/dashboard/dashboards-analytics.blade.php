@@ -15,7 +15,7 @@
 @endsection
 
 @section('content')
-{{-- <div class="row d-flex flex-row-reverse" dir="rtl">
+<div class="row d-flex flex-row-reverse" dir="rtl">
   <div class="col-lg-8 mb-4 order-0">
     <div class="card">
       <div class="d-flex align-items-end row">
@@ -81,7 +81,7 @@
   </div>
 
   
-</div> --}}
+</div>
 
 
 <style>

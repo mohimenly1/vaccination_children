@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class AddChildFile extends Controller
 {
+  public function indexParent()
+  {
+    return view('content.pages.pages-add-parent-file');
+  }
   public function index()
   {
     return view('content.pages.pages-add-child-file');

@@ -56,7 +56,13 @@ Route::post('/pages/account-settings-account', [App\Http\Controllers\pages\Accou
 
 // Add Child Data
 Route::get('/child/add', $controller_path . '\pages\AddChildFile@index')->name('add-child-file');
+Route::get('/parent/add', $controller_path . '\pages\AddChildFile@indexParent')->name('add-parent-file');
+
+
 Route::post('/child/add/store', [App\Http\Controllers\pages\AddChildFile::class, 'store'])->name('store-child');
+Route::post('/parent/add/store', [App\Http\Controllers\pages\AddParentFile::class, 'store'])->name('store-parent');
+
+
 Route::get('/child/search', [OperationsChild::class, 'search'])->name('child.search');
 Route::get('/operations-child/edit/{id}', [AddChildFile::class, 'edit'])->name('operations-child.edit');
 Route::POST('/children/{id}', [AddChildFile::class, 'update'])->name('children.update');

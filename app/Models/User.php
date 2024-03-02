@@ -31,7 +31,11 @@ class User extends Authenticatable
         'active',
         'latitude',
         'longitude',
-
+        'birth_date_parent', 
+        'national_number_parent', 
+        'phone_number', 
+        'address', 
+        'ssn'
     ];
     
 

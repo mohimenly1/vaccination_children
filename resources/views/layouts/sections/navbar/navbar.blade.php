@@ -40,11 +40,11 @@ $navbarDetached = ($navbarDetached ?? '');
 <!-- Notification -->
 <div class="dropdown position-relative">
   <a class="menu-icon tf-icons bx bxs-bell-ring" id="notification-dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      {{-- <span class="position-absolute top-0 start-100 translate-middle badge bg-danger rounded-pill notification-badge">{{ auth()->user()->unreadNotifications->count() }}<span class="visually-hidden">unread messages</span></span> --}}
+      <span class="position-absolute top-0 start-100 translate-middle badge bg-danger rounded-pill notification-badge">{{ auth()->user()->unreadNotifications->count() }}<span class="visually-hidden">unread messages</span></span>
   </a>
 
 
-  {{-- <ul style="height: 200px; overflow-y: auto;" class="dropdown-menu dropdown-menu-end notification-dropdown" aria-labelledby="notification-dropdown-toggle text-center">
+  <ul style="height: 200px; overflow-y: auto;" class="dropdown-menu dropdown-menu-end notification-dropdown" aria-labelledby="notification-dropdown-toggle text-center">
     @if (auth()->user()->unreadNotifications->count() > 0)
         @foreach(auth()->user()->unreadNotifications as $notification)
             <li><a class="dropdown-item notification-link fw-bold text-center" href="#" data-notification-id="{{ $notification->id }}">
@@ -73,7 +73,7 @@ $navbarDetached = ($navbarDetached ?? '');
             {{ isset($notification->data['complications_vaccination_info']) ? $notification->data['complications_vaccination_info'] : '' }}
         </a></li>
     @endforeach
-</ul> --}}
+</ul>
 
   
 
@@ -84,7 +84,7 @@ $navbarDetached = ($navbarDetached ?? '');
 <div class="flex-row align-items-center ms-auto">
   @if(Auth::check() && Auth::user()->role == 'users_health_center')
     <div class="dropdown">
-      {{-- <div class="heart-icon-container" id="vaccinationNamesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+      <div class="heart-icon-container" id="vaccinationNamesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
         <i style="font-size: 40px; color:rgb(113, 211, 113)" class="menu-icon tf-icons bx bxs-check-shield pulsate"></i>
         <div class="note">
           <div class="note-content">
@@ -92,7 +92,7 @@ $navbarDetached = ($navbarDetached ?? '');
             <p>إطلع على تحديثات التطعيم الخاصّة بك</p>
           </div>
         </div>
-      </div> --}}
+      </div>
       <ul style="text-align: right" class="dropdown-menu" aria-labelledby="vaccinationNamesDropdown">
         @foreach($vaccination_data as $vaccination)
         <li><a class="dropdown-item text-right" href="#">{{ $vaccination->vaccination_name }} ({{ $vaccination->vaccination_count }})</a></li>
