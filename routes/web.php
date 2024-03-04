@@ -60,7 +60,10 @@ Route::get('/parent/add', $controller_path . '\pages\AddChildFile@indexParent')-
 
 
 Route::post('/child/add/store', [App\Http\Controllers\pages\AddChildFile::class, 'store'])->name('store-child');
+
+// parent operation
 Route::post('/parent/add/store', [App\Http\Controllers\pages\AddParentFile::class, 'store'])->name('store-parent');
+Route::get('/parent/show/operation', [App\Http\Controllers\pages\AddParentFile::class, 'index'])->name('page-operation-parent');
 
 
 Route::get('/child/search', [OperationsChild::class, 'search'])->name('child.search');

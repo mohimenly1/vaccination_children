@@ -26,8 +26,10 @@ $container = ($container ?? 'container-xxl');
     @if ($isMenu)
     @if (Auth::user()->role == 'users_health_ministry')
       @include('layouts/sections/menu/verticalMenuVersionTwo')
-    @else
+    @elseif (Auth::user()->role == 'users_health_center')
       @include('layouts/sections/menu/verticalMenu')
+    @elseif (Auth::user()->role == 'parent')
+      @include('layouts/sections/menu/parentMenu')
     @endif
     @endif
 

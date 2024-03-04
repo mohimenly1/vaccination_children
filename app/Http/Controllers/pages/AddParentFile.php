@@ -10,15 +10,31 @@ use Illuminate\Support\Facades\Hash;
 class AddParentFile extends Controller
 {
 
+    public function index() {
+        // Get the ID of the currently authenticated users_health_center user
+        $usersHealthCenterId = auth()->id();
+    
+        // Retrieve only the parents associated with the authenticated users_health_center user
+        $users = User::where('role', 'parent')
+                     ->where('users_health_center_id', $usersHealthCenterId)
+                     ->get();
+     
+        return view('content.pages.page-operation-parent', compact('users'));
+    }
+    
 
 
   public function store(Request $request)
   {
 
-  
+    $currentUser = auth()->user();
+
+
+
+    try {
       $validatedData = $request->validate([
           'name' => 'required|string|max:255',
-          'date_birth_parent' => 'required|date',
+          'birth_date_parent' => 'required|date',
           'national_number_parent' => 'required|string|size:12|unique:users,national_number_parent',
           'ssn' => 'required|string|size:5|unique:users,ssn',
           'phone_number' => 'required|string',
@@ -28,7 +44,7 @@ class AddParentFile extends Controller
           'password' => 'required|min:8',
       ], [
           'name.required' => 'يجب إدخال اسم ولي الأمر',
-          'date_birth_parent.required' => 'يجب إدخال مواليد ولي الأمر',
+          'birth_date_parent.required' => 'يجب إدخال مواليد ولي الأمر',
           'address.required' => 'يجب إدخال العنوان',
           'phone_number.required' => 'يجب إدخال رقم الهاتف',
           'ssn.required' => 'يجب إدخال رقم ورقة العائلة',
@@ -50,12 +66,6 @@ class AddParentFile extends Controller
       ]);
       Log::info('Validated data:', $validatedData);
 
-      // Perform validation
-      if ($request->fails()) {
-        // If validation fails, return back with errors
-        return redirect()->back()->withErrors($request->errors())->withInput();
-    }
- 
       
         // Create the new user with the 'parent' role
         $user = new User();
@@ -64,6 +74,7 @@ class AddParentFile extends Controller
         $user->username = $validatedData['username'];
         $user->password = Hash::make($validatedData['password']);
         $user->role = 'parent';
+        $user->users_health_center_id = $currentUser->id;
         $user->save();
 
         // Add additional parent information to the user record
@@ -77,7 +88,13 @@ class AddParentFile extends Controller
         // Redirect back or to a specific route after storing
         return redirect()->route('dashboard-analytics')->with('success', 'Parent added successfully.');
 
-  }
+    } catch (\Exception $e) {
+     // Handle any exceptions
+     Log::error('Error occurred during user creation:', ['exception' => $e]);
+     return redirect()->back()->withInput()->with('error', 'Failed to add parent. Please try again.');
+    }
+
+}
   
 
 

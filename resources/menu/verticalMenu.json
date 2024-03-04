@@ -13,6 +13,12 @@
       "slug": "add-parent-file"
     },
     {
+      "url": "/parent/show/operation",
+      "name": "إدارة حسابات اولياء الأمور",
+      "icon": "menu-icon tf-icons bx bxs-file-plus",
+      "slug": "page-operation-parent"
+    },
+    {
       "url": "/child/add",
       "name": "إضافة ملف الطفل",
       "icon": "menu-icon tf-icons bx bxs-file-plus",

@@ -75,6 +75,12 @@ class User extends Authenticatable
         return $this->hasMany(RespondInquiry::class, 'users_health_center_id');
     }
 
+    
+    public function usersHealthCenter()
+    {
+        return $this->belongsTo(User::class, 'users_health_center_id');
+    }
+
     // public function amountVaccinations(): HasMany
     // {
     //     return $this->hasMany(AmountVaccination::class, 'health_id');
