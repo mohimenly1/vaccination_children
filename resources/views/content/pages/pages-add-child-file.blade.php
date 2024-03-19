@@ -36,7 +36,7 @@
             <div class="row mb-3">
               <label class="col-sm-2 col-form-label">صورة الطفل</label>
               <div class="col-sm-10">
-                  <input type="file" class="form-control" name="child_image" accept="image/*" onchange="previewImage(event)" />
+                  <input type="file" class="form-control" name="image_path" accept="image/*" onchange="previewImage(event)" />
                   <img id="imagePreview" src="#" alt="Preview" style="display: none; max-width: 200px; margin-top: 10px;" />
               </div>
           </div>
@@ -51,22 +51,59 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label class="col-sm-2 col-form-label" for="basic-default-email">الرقم الوطني</label>
+              <label class="col-sm-2 col-form-label">جنسية الطفل</label>
               <div class="col-sm-10">
-                <div class="input-group input-group-merge " dir="ltr">
-                  <span class="input-group-text" id="basic-default-email2">🇱🇾</span>
-                  <input type="text" class="form-control text-right @error('national_number') is-invalid @enderror" name="national_number"/>
-                  @error('national_number')
-                  <div class="invalid-feedback text-right" dir="rtl">{{ $message }}</div>
-                @enderror
-                </div>
-                <div class="form-text"> يجب أن يكون من 12 رقم 
-
-                  
-                </div>
-           
+                  <div class="form-check form-check-inline">
+                      <input type="radio" value="citizen" class="form-check-input" name="child_status" id="citizenRadio" checked>
+                      <label class="form-check-label mr-3" for="citizenRadio">مواطن</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input type="radio" value="foreign" class="form-check-input" name="child_status" id="foreignRadio" >
+                      <label class="form-check-label" for="foreignRadio">الطفل أجنبي</label>
+                  </div>
               </div>
+          </div>
+          
+          
+          <!-- Display for citizen -->
+          <div id="citizenFields">
+              <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label" for="basic-default-email">الرقم الوطني</label>
+                  <div class="col-sm-10">
+                      <div class="input-group input-group-merge " dir="ltr">
+                          <span class="input-group-text" id="basic-default-email2">🇱🇾</span>
+                          <input type="text" class="form-control text-right @error('national_number') is-invalid @enderror" name="national_number"/>
+                          @error('national_number')
+                          <div class="invalid-feedback text-right" dir="rtl">{{ $message }}</div>
+                          @enderror
+                      </div>
+                      <div class="form-text"> يجب أن يكون من 12 رقم
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Display for foreign -->
+          <div id="foreignFields" style="display: none;">
+              <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">رقم الهوية</label>
+                  <div class="col-sm-10">
+                      <input type="text" class="form-control" name="foreign_identity_number">
+                  </div>
+              </div>
+          </div>
+
+
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">رقم القيد</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="ssn" id="ssn">
+                <div id="parentName"></div>
             </div>
+        </div>
+        
+          
+            
             <div class="row mb-3">
               <label class="col-sm-2 col-form-label" for="basic-default-phone">يجب تحديد هذا الخيار</label>
               <div class="col-sm-5">

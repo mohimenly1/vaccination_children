@@ -41,6 +41,11 @@ class AmountVaccination extends Model
         return $this->vaccination_name->vaccination_name;
     }
     
+
+    public function vaccinationName(): BelongsTo
+    {
+        return $this->belongsTo(VaccinationNames::class, 'vaccination_name', 'id');
+    }
     
 
 }

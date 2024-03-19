@@ -16,7 +16,12 @@ class Child extends Model
         'national_number',
         'last_vaccination',
         'next_vaccination',
-        'health_id'
+        'health_id',
+        'image_path',
+        'child_image',
+        'identity_num',
+        'parent_id',
+
     ];
 
     public function vaccinations()

@@ -22,6 +22,7 @@
             <th>تاريخ الميلاد</th>
             <th>آخر تطعيمة تم تلقيحها</th>
             <th>التطعيمة التالية المقرر تلقيحها</th>
+            <th>صورة الطفل</th>
         </tr>
     </thead>
     <tbody>
@@ -31,6 +32,10 @@
             <td>{{ $child->date_birth }}</td>
             <td>{{ $child->last_vaccination }}</td>
             <td>{{ $child->next_vaccination }}</td>
+            <td>
+                <img style="width:100px;height:100px;" src="{{ asset('storage/child_images/' . basename($child->image_path)) }}" />
+            </td>
+            
         </tr>
     </tbody>
 </table>
@@ -48,7 +53,7 @@
     <tbody>
         @foreach($vaccinations as $vaccination)
         <tr>
-            <td>{{ $vaccination->VaccinationName }}</td>
+            <td>{{ $vaccination->vaccination_name }}</td>
             <td>{{ $vaccination->VaccinationDate }}</td>
             <td>{{ $vaccination->NurseName }}</td>
         </tr>

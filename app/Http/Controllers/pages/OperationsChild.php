@@ -7,6 +7,7 @@ use App\Models\AmountVaccination;
 use App\Models\Child;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OperationsChild extends Controller
 {
@@ -45,12 +46,25 @@ class OperationsChild extends Controller
   
 
 
-public function printHealthFile(Request $request, $id)
-{
-    $child = Child::findOrFail($id);
-    $vaccinations = $child->vaccinations;
-    return view('content.pages.pages-operations-child-print', compact('child', 'vaccinations'));
-}
+  public function printHealthFile(Request $request, $id)
+  {
+      $child = Child::findOrFail($id);
+      
+      // Fetch vaccinations with their names using a join
+      $vaccinations = DB::table('vaccinations')
+          ->join('amount_vaccination', 'vaccinations.VaccinationName', '=', 'amount_vaccination.id')
+          ->join('vaccination_names', 'amount_vaccination.vaccination_name', '=', 'vaccination_names.id')
+          ->select('vaccinations.*', 'vaccination_names.vaccination_name as vaccination_name')
+          ->where('vaccinations.NidChild', $id)
+          ->get();
+  
+      return view('content.pages.pages-operations-child-print', compact('child', 'vaccinations'));
+  }
+  
+
+
+  
+  
 
   
 }

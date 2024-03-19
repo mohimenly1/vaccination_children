@@ -3,12 +3,34 @@
 namespace App\Http\Controllers\pages;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use App\Models\Child;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class AddParentFile extends Controller
 {
+
+
+    public function getChildren(Request $request)
+    {
+        $validatedData = $request->validate([
+            'ssn' => 'required|string'
+        ]);
+
+        $parent = User::where('ssn', $validatedData['ssn'])
+                      ->where('role', 'parent')
+                      ->first();
+
+        if (!$parent) {
+            return redirect()->back()->withErrors(['ssn' => 'Parent with this SSN not found.']);
+        }
+
+        $children = Child::where('parent_id', $parent->id)->get();
+
+        return view('parent.children', compact('children'));
+    }
+    
 
     public function index() {
         // Get the ID of the currently authenticated users_health_center user

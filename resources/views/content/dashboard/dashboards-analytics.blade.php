@@ -16,7 +16,7 @@
 
 @section('content')
 <div class="row d-flex flex-row-reverse" dir="rtl">
-  <div class="col-lg-8 mb-4 order-0">
+  <div class="col-lg-12 mb-4 order-0">
     <div class="card">
       <div class="d-flex align-items-end row">
         <div class="col-sm-7">
@@ -75,6 +75,18 @@
         </div>
         @if(auth()->user()->role == 'users_health_ministry')
    
+        @endif
+
+        @if(auth()->user()->role == 'parent')
+        <div class="text-center">
+          <form method="POST" action="{{ route('parent.children') }}">
+            @csrf
+          <b>إستعلم على ملفات الأبناء</b>
+          <br />
+          <input style="width:150px;padding-bottom: 22px;margin-bottom: 10px;padding-top: 13px;" type="text"  class="form-check-input" id="ssn" name="ssn" required />
+          <button type="submit" style="background-color: rgb(190 242 100);border:none;padding:0px 10px;margin-top:10px">البحث</button>
+        </form>
+        </div>
         @endif
       </div>
     </div>
