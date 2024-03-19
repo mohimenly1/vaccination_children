@@ -33,4 +33,9 @@ public function healthCenter()
 {
     return $this->belongsTo(User::class, 'health_id');
 }
+
+public function parent()
+{
+    return $this->belongsTo(User::class, 'parent_id');
+}
 }

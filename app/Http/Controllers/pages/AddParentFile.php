@@ -12,6 +12,8 @@ class AddParentFile extends Controller
 {
 
 
+    
+
     public function getChildren(Request $request)
     {
         $validatedData = $request->validate([
@@ -28,7 +30,7 @@ class AddParentFile extends Controller
 
         $children = Child::where('parent_id', $parent->id)->get();
 
-        return view('parent.children', compact('children'));
+        return view('content.pages.page-children-parent', compact('children'));
     }
     
 

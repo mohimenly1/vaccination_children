@@ -38,15 +38,9 @@
     },
     {
       "url": "/operations/child",
-      "name": "الإجراءات",
+      "name": "ادارة ملفات الاطفال",
       "icon": "menu-icon tf-icons bx bxs-joystick-button",
       "slug": "operations-child"
-    },
-    {
-      "url": "/respond-inquiris",
-      "name": "الرد على الإستفسارات",
-      "icon": "menu-icon tf-icons bx bxs-chat",
-      "slug": "respond-inquiry.index"
     }
  
   ]

@@ -14,7 +14,7 @@
       },
       {
         "url": "/operations/health-ministry",
-        "name": "الإجـراءات",
+        "name": "ادارة المراكز الصحية",
         "icon": "menu-icon tf-icons bx bxs-joystick-button",
         "slug": "health-ministry-operations"
       },
@@ -29,14 +29,7 @@
         "name": "إضافـة معلومات",
         "icon": "menu-icon tf-icons bx bxs-info-circle",
         "slug": "notify-info-health-center"
-      },
-      {
-        "url": "/respond-inquiris",
-        "name": "الرد على الإستفسارات",
-        "icon": "menu-icon tf-icons bx bxs-chat",
-        "slug": "respond-inquiry.index"
       }
-      
 
 
 
