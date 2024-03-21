@@ -84,4 +84,38 @@ $container = ($container ?? 'container-xxl');
     <div class="drag-target"></div>
   </div>
   <!-- / Layout wrapper -->
+
+
+  <style>
+
+.layout-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.layout-container {
+  flex: 1 1 auto;
+}
+
+.layout-menu {
+  order: 2; /* Move the aside to the end */
+}
+
+@media (min-width: 1200px) {
+  .layout-menu-fixed .layout-menu,
+  .layout-menu-fixed-offcanvas .layout-menu {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+  .layout-menu-fixed:not(.layout-menu-collapsed) .layout-page,
+  .layout-menu-fixed-offcanvas:not(.layout-menu-collapsed) .layout-page {
+    padding-left: 16.25rem;
+  }
+}
+  </style>
   @endsection
