@@ -7,8 +7,47 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Twilio\Rest\Client;
 
 class AddHealthMinistry extends Controller{
+
+    public function sendSms(Request $request)
+    {
+        // Replace these values with your Twilio credentials
+        $sid = "AC1e81dcdb9e1fdd9b8ca7fbb3e43c9f01";
+        $token = "81b93458a932f9825abcb10d8c4bdd95";
+        $twilioPhoneNumber = "+15642148510"; // Your Twilio phone number
+
+        $twilio = new Client($sid, $token);
+
+        $to = $request->input('to');
+        $messageBody = $request->input('message');
+
+        try {
+            $message = $twilio->messages
+                ->create($to, [
+                    "from" => $twilioPhoneNumber, // Specify the Twilio phone number here
+                    "body" => $messageBody,
+                    // Add any additional parameters as needed
+                ]);
+
+            // Log the SID of the message for reference
+            Log::info("SMS SID: " . $message->sid);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'SMS sent successfully',
+                'sid' => $message->sid,
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to send SMS',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
 
 
         public function create()

@@ -16,7 +16,8 @@
     "laravel/framework": "^9.0",
     "laravel/sanctum": "^2.14",
     "laravel/tinker": "^2.7",
-    "php-http/guzzle7-adapter": "^1.0"
+    "php-http/guzzle7-adapter": "^1.0",
+    "twilio/sdk": "^7.16"
   },
   "require-dev": {
     "barryvdh/laravel-debugbar": "^3.8",
